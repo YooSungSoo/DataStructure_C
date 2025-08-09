@@ -1,6 +1,6 @@
 # 📘 Docker + VSCode DevContainer 기반 C 개발 환경 구축 
 
-## C언어로 기본 자료구조 구현
+## C언어 사용 기본 자료구조 구현
 
 ### Linked List
 

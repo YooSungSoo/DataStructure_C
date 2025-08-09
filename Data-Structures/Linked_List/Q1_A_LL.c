@@ -90,9 +90,23 @@ int main()
 
 int insertSortedLL(LinkedList *ll, int item)
 {
-	/* add your code here */
-}
+	ListNode *cur = ll -> head; // 현재 탐색할 노드를 가리키는 포인터. 첫 노드(head)부터 시작
+	int index = 0; // 삽입될 인덱스 위치를 세는 변수
 
+	while(cur != NULL && cur -> item < item){ // 리스트를 앞에서부터 체크하며 item보다 작은 값만 건너뜀
+		cur = cur -> next; // 다음 노드로 이동
+		index ++; // 인덱스 계산
+		//cur == NULL: 리스트 끝까지 왔다는 뜻 → 모든 값이 item보다 작음 -> 맨 뒤에 넣어야 함.
+		// cur->item >= item: 처음으로 item 이상인 노드를 만남 -> 그 앞 위치(idx)에 넣으면 정렬이 유지.
+	}
+	
+	if (cur != NULL && cur->item == item) return -1; // 같은 값이 있으면 -1 return
+	if (insertNode(ll, index, item) == 0) return index; // 같은 값이 없으면 추가
+	// insertNode함수 성공하면 0 반환. 따라서 성공시 index 반환
+
+	return -1;
+	
+}
 ///////////////////////////////////////////////////////////////////////////////////
 
 void printList(LinkedList *ll){
