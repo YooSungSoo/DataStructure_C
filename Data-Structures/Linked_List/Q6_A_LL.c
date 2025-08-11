@@ -90,7 +90,7 @@ int moveMaxToFront(ListNode **ptrHead)
 {
     ListNode *mxNode = *ptrHead;
 	ListNode *mxPrev = NULL;
-
+	
 	ListNode *prev = NULL;
 	ListNode *cur = *ptrHead;
 
