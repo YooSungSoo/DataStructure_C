@@ -103,7 +103,34 @@ int main()
 
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
-    /* add your code here */
+    
+	ListNode *p1 = ll1->head;  // ll1에서 현재 “교차 위치”의 기준 노드
+    ListNode *p2 = ll2->head;  // ll2에서 다음에 “이동”시킬 노드
+
+    while (p1 != NULL && p2 != NULL) {
+        // 다음 위치 백업 (연결 바꾸기 전에 저장해야 함)
+        ListNode *p1_next = p1->next;
+        ListNode *p2_next = p2->next;
+
+        // p2를 ll1의 p1 뒤에 꽂는다: p1 -> p2 -> p1_next
+        p1->next = p2;
+        p2->next = p1_next;
+
+        // 사이즈 갱신 (ll2에서 한 노드가 ll1로 이동)
+        ll1->size++;
+        ll2->size--;
+
+        // 다음 라운드를 위한 이동
+        p1 = p1_next;   // 교차는 "원래 ll1 노드" 기준으로 하므로 p1은 p1_next로 진행
+        p2 = p2_next;   // ll2에서 다음 노드로
+
+        // p1이 NULL이면 더 이상 교차 위치가 없음 (루프 조건에서 종료됨)
+        // p2가 NULL이면 ll2를 다 소진 (루프 조건에서 종료됨)
+    }
+
+    // 남은 ll2의 헤드를 업데이트 (없으면 NULL)
+    ll2->head = p2;
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
