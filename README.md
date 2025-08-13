@@ -1,12 +1,13 @@
-# 📘 Docker + VSCode DevContainer 기반 C 개발 환경 구축 
+# 📘 Docker + VSCode DevContainer 기반 C 개발 환경 
 
-## C언어 사용 기본 자료구조 구현
+## C언어 사용 자료구조 구현
 
-### Linked List
+### - Linked List
 
-### Stack and Queue
+### - Stack and Queue
 
-### Binary Tree
+### - Binary Tree
 
-### Binary Search Tree
+### - Binary Search Tree
+
 
