@@ -98,10 +98,10 @@ void preOrderIterative(BSTNode *root)
 	push(&s, root);
     while (!isEmpty(&s)) {
         BSTNode *cur = pop(&s);
-        printf("%d ", cur->item);      // N: 방문(출력)
+        printf("%d ", cur->item);
 
-        if (cur->right) push(&s, cur->right); // R: 나중에 방문하도록 먼저 push
-        if (cur->left)  push(&s, cur->left);  // L: 먼저 방문되도록 나중에 push
+        if (cur->right) push(&s, cur->right);
+        if (cur->left)  push(&s, cur->left);
     }
 
 }
